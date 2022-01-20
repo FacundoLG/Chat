@@ -14,24 +14,49 @@
 }
 body {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Messages {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  border: solid grey 1px;
+  width: 60vw;
+  height: 70vh;
+  overflow: auto;
+}
+.Message {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+  /* height: 50px; */
+  border-top: solid 1px lightblue;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Message > p > span {
+  color: #ff0000;
+}
+
+.Message > p .You {
+  color: #00ff00;
+}
+
+.Message > p > .BOT {
+  color: gray;
+}
+
+.time {
+  font-size: 10px;
+}
+.Message p {
+  margin: 3px;
+}
+.chatInput {
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
