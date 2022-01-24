@@ -1,6 +1,7 @@
-const success = (req, res, message, statusCode) => {
+const success = (req, res, message, statusCode, data) => {
   res.status(statusCode || 200).json({
     message,
+    data,
   });
 };
 

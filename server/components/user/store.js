@@ -5,7 +5,9 @@ const CreateNewUser = (userData) => {
     const user = new User(userData);
     return user.save((err) => {
       if (err) {
-        reject(err.message);
+        const errorMessage = err.message.split(":")[2].trim();
+        console.log(err);
+        reject(errorMessage);
       } else {
         resolve();
       }
@@ -13,6 +15,13 @@ const CreateNewUser = (userData) => {
   });
 };
 
+const GetOneUser = (userData) => {
+  return new Promise((resolve, reject) => {
+    User.findOne({ UserName: userData.UserName }).then(resolve).catch(reject);
+  });
+};
+
 module.exports = {
   CreateNewUser,
+  GetOneUser,
 };

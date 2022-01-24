@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { loginUser, registerUser } = require("./controler");
+const { LoginUser, registerUser } = require("./controler");
 
 router.post("/register", registerUser);
 
-router.post("/login", loginUser);
+router.post("/login", LoginUser);
 
 router.post("/", (req, res) => {
   res.json({ message: "Si" });
