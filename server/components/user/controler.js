@@ -3,15 +3,16 @@ const { hashPassword, checkPassoword } = require("../../lib/Bcrypt");
 const { generateToken } = require("../../lib/JWT");
 const { CreateNewUser, GetOneUser } = require("./store");
 const registerUser = (req, res) => {
-  const { UserName, NickName, Password, ConfirmationPassword, Gender } =
+  const { UserName, NickName, Password, ConfirmationPassword, Email } =
     req.body;
+
   if (Password !== ConfirmationPassword || !Password || !ConfirmationPassword) {
     return error(req, res, "Passwords do not match", 403);
   }
 
   let hashedPassword = hashPassword(Password);
 
-  CreateNewUser({ UserName, NickName, Password: hashedPassword, Gender })
+  CreateNewUser({ UserName, NickName, Password: hashedPassword, Email })
     .then(() => {
       success(req, res, "User created");
     })
