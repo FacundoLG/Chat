@@ -2,14 +2,14 @@ const mongoose = require("mongoose");
 
 const friendSchema = new mongoose.Schema({
   creatorID: {
-    type: ObjectId,
+    type: String,
     required: true,
   },
   friendID: {
-    type: ObjectId,
+    type: String,
     required: true,
   },
-  groupState: {
+  status: {
     type: String,
     enum: ["pending", "rejected", "accepted"],
     default: "pending",
@@ -26,6 +26,6 @@ const friendSchema = new mongoose.Schema({
   },
 });
 
-const friend = new mongoose.Model("friend", friendSchema);
+const Friend = mongoose.model("friend", friendSchema);
 
-module.exports = friend;
+module.exports = Friend;

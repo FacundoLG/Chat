@@ -8,10 +8,10 @@ const generateToken = (payload) => {
 
 const verifyToken = (req, res, next) => {
   if (
-    req.headers.Authorization &&
-    req.headers.Authorization.split(" ")[0] === "bearer"
+    req.headers.authorization &&
+    req.headers.authorization.split(" ")[0] === "bearer"
   ) {
-    const token = req.headers.Authorization.split(" ")[1];
+    const token = req.headers.authorization.split(" ")[1];
     token &&
       jwt.verify(token, secret, (err, decoded) => {
         if (err) {

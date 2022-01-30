@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
     required: [true, "Username is required"],
     minlength: [4, "Bro, your username needs more characters"],
     maxlength: [20, "Your username is too long"],
+    unique: [true, "This username is already taken"],
   },
   NickName: {
     type: String,
@@ -18,6 +19,7 @@ const userSchema = new mongoose.Schema({
   Email: {
     type: String,
     required: [true, "Please,fill the string gap"],
+    unique: [true, "This Email is already taken"],
   },
 });
 

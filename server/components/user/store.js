@@ -6,7 +6,6 @@ const CreateNewUser = (userData) => {
     return user.save((err) => {
       if (err) {
         const errorMessage = err.message.split(":")[2].trim();
-        console.log(err);
         reject(errorMessage);
       } else {
         resolve();
